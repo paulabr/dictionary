@@ -1,0 +1,22 @@
+@media (min-width: 768px) {
+  .main-content {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .main-content {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .main-content {
+    width: 1000px;
+  }
+}
+.main-content {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+}

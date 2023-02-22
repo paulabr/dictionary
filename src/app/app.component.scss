@@ -1,0 +1,18 @@
+.search-field {
+  border: 3px solid #e8e8e8;
+  border-radius: 12px;
+  background-color: #e8e8e8;
+  line-height: 40px;
+}
+
+.input-field {
+  background-color: #e8e8e8;
+  outline: none;
+  width: 95%;
+  padding: 0 15px 0 15px;
+  border-color: #e8e8e8;
+}
+
+input:focus {
+  outline: none;
+}
