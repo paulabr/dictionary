@@ -1,18 +1,34 @@
-import { Component } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from "@angular/core";
+import { FormControl } from "@angular/forms";
+import { debounceTime, distinctUntilChanged } from "rxjs";
+import { DefinitionsService } from "./services/definition/definition.service";
+import { Definition } from "./services/definition/definition.type";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  searchTerm = new FormControl("");
+  definition: Definition;
+  constructor(private definitionsService: DefinitionsService) {}
 
-  constructor(private modalService: NgbModal) {
+  ngOnInit(): void {
+    this.searchTerm.valueChanges
+      .pipe((debounceTime(300), distinctUntilChanged()))
+      .subscribe((val) => {
+        if (!val) {
+          this.definition = val;
+        }
+      });
   }
 
-  public open(modal: any): void {
-    this.modalService.open(modal);
+  search(searchTerm: string) {
+    if (searchTerm) {
+      this.definitionsService.getDefinition(searchTerm).subscribe((val) => {
+        this.definition = val[0];
+      });
+    }
   }
-
 }
