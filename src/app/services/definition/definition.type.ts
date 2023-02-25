@@ -1,24 +1,33 @@
+export interface License {
+  name: string;
+  url: string;
+}
+
 export interface Phonetic {
   text: string;
   audio: string;
+  sourceUrl: string;
+  license: License;
 }
 
-export interface Definition {
+export interface Explanation {
   definition: string;
-  example: string;
   synonyms: any[];
   antonyms: any[];
+  example: string;
 }
 
 export interface Meaning {
   partOfSpeech: string;
-  definitions: Definition[];
+  definitions: Explanation[];
+  synonyms: string[];
+  antonyms: string[];
 }
-
 export interface Definition {
   word: string;
   phonetic: string;
   phonetics: Phonetic[];
-  origin: string;
   meanings: Meaning[];
+  license: License;
+  sourceUrls: string[];
 }
