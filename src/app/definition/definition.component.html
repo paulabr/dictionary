@@ -1,12 +1,37 @@
-<div>
-  <h1>{{ definition.word | titlecase }}</h1>
-  <h3>{{ definition.phonetic | json }}</h3>
-</div>
-<div>{{ definition.phonetics }}</div>
-<div *ngFor="let meaning of definition.meanings">
-  <p>{{ meaning.partOfSpeech }}</p>
-  <div *ngFor="let definition of meaning.definitions">
-    <p>{{ definition.definition }}</p>
-    <p>{{ definition.synonyms }}</p>
+<div *ngIf="definition">
+  <div class="d-flex">
+    <div class="me-auto p-2">
+      <h1>
+        <b>{{ definition.word | titlecase }}</b>
+      </h1>
+      <h4 class="phonetic">{{ definition.phonetic | json }}</h4>
+    </div>
+    <div class="p-2" *ngIf="definition.phonetics">
+      <audio
+        id="sound1"
+        src="{{ definition.phonetics }}"
+        preload="auto"
+      ></audio>
+      <button
+        class="play-button"
+        onclick="document.getElementById('sound1').play();"
+      >
+        <i
+          class="bi bi-play-fill play-icon"
+          onclick="document.getElementById('sound1').play();"
+        ></i>
+      </button>
+    </div>
+  </div>
+
+  <div *ngFor="let meaning of definition.meanings">
+    <p class="part-of-speech">{{ meaning.partOfSpeech }}</p>
+    <p class="text-secondary">Meaning</p>
+    <div *ngFor="let definition of meaning.definitions">
+      <p>{{ definition.definition }}</p>
+      <p *ngIf="definition.synonyms.length > 0">Synonyms</p>
+      <p>{{ definition.synonyms }}</p>
+    </div>
+    <hr *ngIf="definition" class="hr" />
   </div>
 </div>

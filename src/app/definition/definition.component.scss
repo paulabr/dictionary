@@ -1,0 +1,33 @@
+$font-main: "Courgette";
+
+.phonetic {
+  color: #9e60db;
+}
+
+.play-button {
+  width: 70px;
+  height: 70px;
+  background-color: #caa1f0;
+  border-radius: 35px;
+  border-color: #caa1f0;
+  font-size: 35px;
+  text-align: center;
+}
+
+.play-button:hover {
+  margin-top: 0px;
+  -moz-box-shadow: 0px 0px 4px 1px #caa1f0;
+  -webkit-box-shadow: 0px 0px 4px 1px #caa1f0;
+  box-shadow: 0px 0px 4px 1px #caa1f0;
+  border-radius: 100px;
+}
+
+.play-icon {
+  color: #9e60db;
+}
+
+.part-of-speech {
+  font-family: $font-main;
+  font-weight: bold;
+  font-size: 20px;
+}

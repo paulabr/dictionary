@@ -16,7 +16,6 @@ export class DefinitionsService {
       .pipe(
         map((response) => {
           return response.map((obj) => {
-            debugger;
             return {
               word: obj.word,
               phonetic:
