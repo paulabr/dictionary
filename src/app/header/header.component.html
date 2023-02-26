@@ -5,24 +5,30 @@
         <div class="w-100">
           <img src="../../assets/dictionary.svg" />
         </div>
-        <div class="d-flex justify-content-start flex-shrink-1">
-          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <div class="d-flex justify-content-start">
+          <div
+            class="navbar-collapse"
+            id="navbarNavDarkDropdown"
+            data-display="static"
+          >
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                <a
+                <div
+                  [(ngModel)]="selectedFont"
+                  ngDefaultControl
                   class="nav-link dropdown-toggle"
-                  href="#"
+                  id="navbarDropdownMenuLink"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">Serif</a></li>
-                  <li><a class="dropdown-item" href="#">Sans-serif</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Monospace</a>
+                  {{ selectedFont }}
+                </div>
+                <ul class="dropdown-menu dropdown-menu-light">
+                  <li *ngFor="let font of fonts">
+                    <a class="dropdown-item" (click)="setFont(font)">{{
+                      font
+                    }}</a>
                   </li>
                 </ul>
               </li>

@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
       .subscribe((val) => {
         if (!val) {
           this.definition = val;
+          this.error = val;
         }
       });
   }
