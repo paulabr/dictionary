@@ -25,13 +25,17 @@
   </div>
 
   <div *ngFor="let meaning of definition.meanings">
-    <p class="part-of-speech">{{ meaning.partOfSpeech }}</p>
+    <div class="d-flex mt-3 mb-3">
+      <span class="part-of-speech">{{ meaning.partOfSpeech }}</span>
+      <hr class="hr divider" />
+    </div>
     <p class="text-secondary">Meaning</p>
     <div *ngFor="let definition of meaning.definitions">
-      <p>{{ definition.definition }}</p>
+      <ul>
+        <li>{{ definition.definition }}</li>
+      </ul>
       <p *ngIf="definition.synonyms.length > 0">Synonyms</p>
       <p>{{ definition.synonyms }}</p>
     </div>
-    <hr *ngIf="definition" class="hr" />
   </div>
 </div>
