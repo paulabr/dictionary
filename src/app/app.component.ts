@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormControl, Validators } from "@angular/forms";
 import { debounceTime, distinctUntilChanged } from "rxjs";
+import { DefinitionError } from "./services/definition/definition-error.type";
 import { DefinitionsService } from "./services/definition/definition.service";
 import { Definition } from "./services/definition/definition.type";
 
@@ -10,8 +11,9 @@ import { Definition } from "./services/definition/definition.type";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  searchTerm = new FormControl("");
+  searchTerm = new FormControl("", Validators.required);
   definition: Definition;
+  error: any;
   constructor(private definitionsService: DefinitionsService) {}
 
   ngOnInit(): void {
@@ -25,9 +27,13 @@ export class AppComponent implements OnInit {
   }
 
   search(searchTerm: string) {
+    if (!searchTerm) {
+      this.searchTerm.setErrors({ noTerm: true });
+    }
     if (searchTerm) {
-      this.definitionsService.getDefinition(searchTerm).subscribe((val) => {
-        this.definition = val[0];
+      this.definitionsService.getDefinition(searchTerm).subscribe({
+        next: (val: Definition) => (this.definition = val[0]),
+        error: (err: DefinitionError) => (this.error = err),
       });
     }
   }

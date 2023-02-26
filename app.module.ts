@@ -1,12 +1,13 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
-import { AppComponent } from "./src/app/app.component";
-import { HeaderModule } from "./src/app/header/header.module";
 import { HttpClientModule } from "@angular/common/http";
+import { DefinitionErrorModule } from "src/app/definition-error/definition-error.module";
+import { AppComponent } from "./src/app/app.component";
 import { DefinitionModule } from "./src/app/definition/definition.module";
+import { HeaderModule } from "./src/app/header/header.module";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { DefinitionModule } from "./src/app/definition/definition.module";
     HttpClientModule,
     ReactiveFormsModule,
     DefinitionModule,
+    DefinitionErrorModule,
   ],
   providers: [
     {

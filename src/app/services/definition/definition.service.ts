@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
-import { map, Observable } from "rxjs";
+import { catchError, map, Observable, throwError } from "rxjs";
 import { Definition } from "./definition.type";
 
 @Injectable({ providedIn: "root" })
@@ -14,6 +14,9 @@ export class DefinitionsService {
     return this.httpClient
       .get<Definition[]>(`${this.dictionaryUrl}/${searchTerm}`)
       .pipe(
+        catchError((error) => {
+          return throwError(error.error);
+        }),
         map((response) => {
           return response.map((obj) => {
             return {

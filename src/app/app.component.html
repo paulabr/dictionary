@@ -18,10 +18,15 @@
             (click)="search(searchTerm.value)"
           ></i>
         </div>
+        <div *ngIf="searchTerm.getError('noTerm')">
+          <p class="text-danger ms-1 mt-1">*Search term cannot be empty</p>
+        </div>
       </div>
     </div>
-    <div>
-      <app-definition [definition]="definition"></app-definition>
-    </div>
+    <app-definition
+      *ngIf="definition"
+      [definition]="definition"
+    ></app-definition>
+    <app-definition-error *ngIf="error" [error]="error"></app-definition-error>
   </div>
 </div>
