@@ -38,8 +38,7 @@
   font-family: serif;
 }
 
-/* Add application styles & imports to this file! */
-body {
+.light-theme {
   --text-color: #222;
   --bkg-color: #fff;
   --btn-txt-color: white;
@@ -48,10 +47,11 @@ body {
   --dropdown-menu-color: white;
   --search-field-color: #e8e8e8;
   --search-placeholder-color: #222;
+  --form-check-input-color: #858282;
 }
 
-body.dark-theme {
-  --text-color: #eee;
+.dark-theme {
+  --text-color: #0e0d0d;
   --bkg-color: #070707;
   --btn-txt-color: rgb(46, 43, 43);
   --btn-bg-color: rgb(20, 211, 195);
@@ -59,6 +59,7 @@ body.dark-theme {
   --dropdown-menu-color: #1f1f1f;
   --search-field-color: #1f1f1f;
   --search-placeholder-color: white;
+  --form-check-input-color: #caa1f0;
 }
 
 h1,
@@ -99,6 +100,10 @@ input.form-control.rounded.input-field {
   color: var(--search-placeholder-color);
 }
 
+.form-check-input {
+  background-color: var(--form-check-input-color);
+}
+
 button {
   padding: 10px;
   border: none;
@@ -106,7 +111,31 @@ button {
   color: var(--btn-txt-color);
   background-color: var(--btn-bg-color);
 }
+
 body {
   font-family: sans-serif;
   background: var(--bkg-color);
+  --text-color: #222;
+  --bkg-color: #fff;
+  --btn-txt-color: white;
+  --btn-bg-color: rgb(11, 88, 160);
+  --icons-color: grey;
+  --dropdown-menu-color: white;
+  --search-field-color: #e8e8e8;
+  --search-placeholder-color: #222;
+  --form-check-input-color: #858282;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --text-color: #eee;
+    --bkg-color: #070707;
+    --btn-txt-color: rgb(46, 43, 43);
+    --btn-bg-color: rgb(20, 211, 195);
+    --icons-color: #9e60db;
+    --dropdown-menu-color: #1f1f1f;
+    --search-field-color: #1f1f1f;
+    --search-placeholder-color: white;
+    --form-check-input-color: #caa1f0;
+  }
 }

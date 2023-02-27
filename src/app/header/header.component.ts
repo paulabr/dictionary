@@ -18,7 +18,14 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleTheme() {
-    this.document.body.classList.toggle("dark-theme");
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      this.document.body.classList.toggle("light-theme");
+    } else {
+      this.document.body.classList.toggle("dark-theme");
+    }
   }
 
   ngOnInit(): void {}
