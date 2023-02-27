@@ -22,9 +22,9 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {{ selectedFont | titlecase }}
+                  <span>{{ selectedFont | titlecase }}</span>
                 </div>
-                <ul class="dropdown-menu dropdown-menu-light">
+                <ul class="dropdown-menu">
                   <li *ngFor="let font of fonts">
                     <a class="dropdown-item" (click)="setFont(font)">{{
                       font | titlecase
@@ -41,10 +41,11 @@
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"
+              (click)="toggleTheme()"
             />
           </div>
           <div class="mt-1">
-            <img src="../../assets/moon.svg" />
+            <i class="bi bi-moon moon-icon"></i>
           </div>
         </div>
       </div>

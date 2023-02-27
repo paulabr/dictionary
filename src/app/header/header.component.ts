@@ -12,10 +12,13 @@ export class HeaderComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
   setFont(font: string) {
-    debugger;
     this.document.body.classList.remove(`body-${this.selectedFont}`);
     this.selectedFont = font;
     this.document.body.classList.add(`body-${font}`);
+  }
+
+  toggleTheme() {
+    this.document.body.classList.toggle("dark-theme");
   }
 
   ngOnInit(): void {}

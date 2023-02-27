@@ -38,6 +38,75 @@
   font-family: serif;
 }
 
+/* Add application styles & imports to this file! */
+body {
+  --text-color: #222;
+  --bkg-color: #fff;
+  --btn-txt-color: white;
+  --btn-bg-color: rgb(11, 88, 160);
+  --icons-color: grey;
+  --dropdown-menu-color: white;
+  --search-field-color: #e8e8e8;
+  --search-placeholder-color: #222;
+}
+
+body.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #070707;
+  --btn-txt-color: rgb(46, 43, 43);
+  --btn-bg-color: rgb(20, 211, 195);
+  --icons-color: #9e60db;
+  --dropdown-menu-color: #1f1f1f;
+  --search-field-color: #1f1f1f;
+  --search-placeholder-color: white;
+}
+
+h1,
+p,
+a,
+a.dropdown-item,
+span,
+li {
+  color: var(--text-color);
+}
+i {
+  color: var(--icons-color);
+}
+
+ul.dropdown-menu {
+  background-color: var(--dropdown-menu-color);
+  color: var(--text-color);
+}
+
+div.input-group.search-field.d-flex {
+  background-color: var(--search-field-color);
+  border-color: var(--search-field-color);
+}
+
+input.form-control.rounded.input-field {
+  background-color: var(--search-field-color);
+}
+
+.form-control {
+  color: var(--search-placeholder-color);
+}
+
+.form-control:focus {
+  color: var(--search-placeholder-color);
+}
+
+.form-control::placeholder {
+  color: var(--search-placeholder-color);
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  color: var(--btn-txt-color);
+  background-color: var(--btn-bg-color);
+}
 body {
   font-family: sans-serif;
+  background: var(--bkg-color);
 }

@@ -3,7 +3,7 @@
     <h1>
       <b>{{ definition.word | titlecase }}</b>
     </h1>
-    <h4 class="phonetic">{{ definition.phonetic | json }}</h4>
+    <h4 class="colored-text">{{ definition.phonetic | json }}</h4>
   </div>
   <div class="p-2" *ngIf="definition.phonetics">
     <audio id="sound1" src="{{ definition.phonetics }}" preload="auto"></audio>
@@ -29,7 +29,11 @@
     <ul>
       <li>{{ definition.definition }}</li>
     </ul>
-    <p *ngIf="definition.synonyms.length > 0">Synonyms</p>
-    <p>{{ definition.synonyms }}</p>
+    <div *ngIf="definition.synonyms.length > 0" class="d-flex">
+      <p class="text-secondary">Synonyms &nbsp;</p>
+      <p class="colored-text">
+        <b>{{ definition.synonyms }}</b>
+      </p>
+    </div>
   </div>
 </div>
