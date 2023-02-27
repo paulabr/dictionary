@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { DOCUMENT } from "@angular/common";
+import { Component, Inject, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-header",
@@ -6,12 +7,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-  fonts = ["Sans-serif", "Serif", "Monospace"];
+  fonts = ["sans-serif", "serif", "monospace"];
   selectedFont = this.fonts[0];
-  constructor() {}
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   setFont(font: string) {
+    debugger;
+    this.document.body.classList.remove(`body-${this.selectedFont}`);
     this.selectedFont = font;
+    this.document.body.classList.add(`body-${font}`);
   }
 
   ngOnInit(): void {}

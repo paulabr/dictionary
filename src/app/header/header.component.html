@@ -22,12 +22,12 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {{ selectedFont }}
+                  {{ selectedFont | titlecase }}
                 </div>
                 <ul class="dropdown-menu dropdown-menu-light">
                   <li *ngFor="let font of fonts">
                     <a class="dropdown-item" (click)="setFont(font)">{{
-                      font
+                      font | titlecase
                     }}</a>
                   </li>
                 </ul>

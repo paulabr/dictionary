@@ -25,3 +25,19 @@
 .form-control:focus {
   box-shadow: none;
 }
+
+.body-monospace {
+  font-family: monospace;
+}
+
+.body-sans-serif {
+  font-family: sans-serif;
+}
+
+.body-serif {
+  font-family: serif;
+}
+
+body {
+  font-family: sans-serif;
+}
