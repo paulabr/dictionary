@@ -1,14 +1,10 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { DefinitionError } from "../services/definition/definition-error.type";
+import { Component, Input } from "@angular/core";
+import { DictionaryError } from "../services/definition/definition.type";
 
 @Component({
   selector: "app-definition-error",
   templateUrl: "./definition-error.component.html",
-  styleUrls: ["./definition-error.component.scss"],
 })
-export class DefinitionErrorComponent implements OnInit {
-  @Input() error: DefinitionError;
-  constructor() {}
-
-  ngOnInit(): void {}
+export class DefinitionErrorComponent {
+  @Input() error: DictionaryError;
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Definition } from "../services/definition/definition.type";
 
 @Component({
@@ -6,9 +6,6 @@ import { Definition } from "../services/definition/definition.type";
   templateUrl: "./definition.component.html",
   styleUrls: ["./definition.component.scss"],
 })
-export class DefinitionComponent implements OnInit {
+export class DefinitionComponent {
   @Input() definition: Definition;
-  constructor() {}
-
-  ngOnInit(): void {}
 }

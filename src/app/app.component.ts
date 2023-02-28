@@ -1,9 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { debounceTime, distinctUntilChanged } from "rxjs";
-import { DefinitionError } from "./services/definition/definition-error.type";
+
 import { DefinitionsService } from "./services/definition/definition.service";
-import { Definition } from "./services/definition/definition.type";
+import {
+  Definition,
+  DictionaryError,
+} from "./services/definition/definition.type";
 
 @Component({
   selector: "app-root",
@@ -34,7 +37,7 @@ export class AppComponent implements OnInit {
     if (searchTerm) {
       this.definitionsService.getDefinition(searchTerm).subscribe({
         next: (val: Definition) => (this.definition = val[0]),
-        error: (err: DefinitionError) => (this.error = err),
+        error: (err: DictionaryError) => (this.error = err),
       });
     }
   }

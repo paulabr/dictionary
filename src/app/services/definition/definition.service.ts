@@ -15,7 +15,7 @@ export class DefinitionsService {
       .get<Definition[]>(`${this.dictionaryUrl}/${searchTerm}`)
       .pipe(
         catchError((error) => {
-          return throwError(error.error);
+          return throwError(() => new Error(error.error));
         }),
         map((response) => {
           return response.map((obj) => {
